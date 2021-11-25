@@ -250,6 +250,112 @@ class PenulDatatransaks extends \yii\db\ActiveRecord
     // {
     //     return new PenulDatatransaksSearch(get_called_class());
     // }
+    
+    public function fields()
+    {
+
+      return [
+        'idRha'=> function ($model) {
+         return (string)$model->link_header;
+       }, 
+       'noDok'=> function ($model) {
+         return $model->pib;
+       }, 
+       'tglDok'=> function ($model) {
+         return $model->tglpib;
+       }, 
+       'npwp'=> function ($model) {
+         return $model->npwp_imp;
+       }, 
+       'nmPerusahaan'=> function ($model) {
+         return $model->imp;
+       }, 
+       'seri'=> function ($model) {
+         return $model->seri_brg;
+       }, 
+       'urBrg'=> function ($model) {
+         return $model->uraian_brg;
+       }, 
+       'hsAwal'=> function ($model) {
+         return $model->hs;
+       }, 
+       'trfBeaAwal'=> function ($model) {
+         return (float)$model->trf_bm;
+       }, 
+
+       'nilaiAwal'=> function ($model) {
+         return (int)$model->nilaipabean_awal;
+       }, 
+       'hsAkhir'=> function ($model) {
+         return $model->hs_t;
+       }, 
+       'trfBeaAkhir'=> function ($model) {
+        return (float)$model->trf_bm_t;
+      }, 
+      'nilaiAkhir'=> function ($model) {
+       return (int)$model->nilaipabean_akhir;
+     }, 
+     'urKetRha'=> function ($model) {
+       return $model->ket;
+     }, 
+     'trfPpnAwal'=> function ($model) {
+       return (float)$model->trf_ppn;
+     }, 
+     'trfPphAwal'=> function ($model) {
+       return (float)$model->trf_ppnbm;
+     }, 
+     'trfPpnbmAwal'=> function ($model) {
+       return (float)$model->trf_ppnbm;
+     }, 
+     'trfPpnAkhir'=> function ($model) {
+       return (float)$model->trf_ppn_t;
+     }, 
+     'trfPphAkhir'=> function ($model) {
+       return (float)$model->trf_pph_t;
+     }, 
+     'trfPpnbmAkhir'=> function ($model) {
+       return (float)$model->trf_ppnbm_t;
+     }, 
+     'trfBmadAwal'=> function ($model) {
+       return (int)$model->trf_bmad;
+     }, 
+     'trfBmadAkhir'=> function ($model) {
+       return (float)$model->trf_bmad_t;
+     }, 
+
+     'bea'=> function ($model) {
+       return (int)$model->bm_t_nilai_akhir;
+     }, 
+     'bmad'=> function ($model) {
+       return (int)$model->bmad_nilai_akhir;
+     }, 
+     'ppn'=> function ($model) {
+       return (int)$model->ppn_t_nilai_akhir;
+     }, 
+     'pph'=> function ($model) {
+       return (int)$model->pph_t_nilai_akhir;
+     }, 
+     'ppnbm'=> function ($model) {
+       return (int)$model->ppnbm_t_nilai_akhir;
+     }, 
+     'denda'=> function ($model) {
+       return (int)$model->denda;
+     }, 
+     'total'=> function ($model) {
+       return (int)$model->total_tagihan;
+     }, 
+     'ketPotensi'=> function ($model) {
+       return $model->flag_pusat_ket;
+     }, 
+       
+
+
+
+
+
+          //  'comment' 
+   ];
+}
 
     public static function find()
     {
