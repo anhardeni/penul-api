@@ -289,36 +289,68 @@ class PenulHeader extends \yii\db\ActiveRecord
     // }
 
 
-    public function fields()
+     public function fields()
     {
 
         return [
-            'id',
-            'noagenda',
-            'jen_dok',
-            'jen_pelanggaran',
-            'nd',
+           # 'id',
+            'urAnalisis'=> function ($model) {
+             return $model->analisa_prosedur_rha;
+                }, 
+            'urKesimpulan'=> function ($model) {
+             return $model->analisa_prosedur_rha7;
+                }, 
+                 'noRha'=> function ($model) {
+             return $model->rha;
+                }, 
+                 'tglRha'=> function ($model) {
+             return $model->rha_tgl;
+                }, 
+                 'kdJnsDok'=> function ($model) {
+             return (string)$model->jen_dok;
+                }, 
+                 'nipAnalis'=> function ($model) {
+             return $model->analis10->nip;
+                }, 
+                 'nipPenyajiData'=> function ($model) {
+             return $model->penyajiData1->nip;
+                }, 
+                 'salah'=> function ($model) {
+             return (array)((string)$model->jen_pelanggaran);
+                }, 
+
+           // 'salah' => (array) ['salah']; 
+
+                     
+
+            // 'noagenda',
+            // 'jen_dok',
+            // 'jen_pelanggaran',
+            // 'nd',
 
             
-            'penuldt' => function ($model) {
-             return $model->jen_pelanggaran;
-                }, //ok
+           // 'penuldt' => function ($model) {
+           //   return $model->jen_pelanggaran;
+           //      }, //ok
+
            // 'penuldatatransaks',
          
             
-           //  'profile' => function ($model) {
-           //     return $model->profile;
+           //  'salah' => function ($model) {
+           //     return $model->jenPelanggaran;
            // },
 
-          //  'comment' 
+           // 'comment' 
+
+           // 'test' => function ($model) {
+           //     return $model->comment;
+           // },
      ];
  }
 
-//  public function extraFields() {
-//     return ['penuldt'];
-// }
-
-public function getProfile()
+    
+    
+   public function getProfile()
 {
     return $this->hasOne(\app\models\Profile::className(), ['user_id' => 'id']);
 }
